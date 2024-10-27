@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Stay Hotel</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('hotel-header.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2em;
+    }
+    /* General Section Styling */
+    section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #004080;
+    }
+    /* About Section */
+    #about p {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      color: #555;
+      font-size: 1.1em;
+    }
+    /* Gallery Section */
+    .gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .gallery img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    /* Booking Form */
+    .booking-form {
+      background: #e8f0ff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      margin: 20px auto;
+    }
+    .booking-form label {
+      font-weight: bold;
+      color: #333;
+    }
+    .booking-form input, .booking-form select, .booking-form button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+    .booking-form button {
+      background-color: #004080;
+      color: #fff;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .booking-form button:hover {
+      background-color: #003060;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Welcome to Palace Horizons</h1>
+    <p>Your perfect vacation spot awaits!</p>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Located in the heart of the city, Simple Stay Hotel combines luxury with convenience, offering a welcoming ambiance and top-quality service. Our hotel is perfect for both business travelers and vacationers, making your stay unforgettable.</p>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2>Our Gallery</h2>
+    <div class="gallery">
+      <img src="room.jpg" alt="Hotel Room">
+      <img src="pool.jpg" alt="Swimming Pool">
+      <img src="restaurant.jpg" alt="Restaurant">
+      <img src="lobby.jpg" alt="Hotel Lobby">
+    </div>
+  </section>
+
+  <!-- Booking Form Section -->
+  <section id="booking">
+    <h2>Book Your Stay</h2>
+    <div class="booking-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" placeholder="Your name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="Your email" required>
+
+      <label for="roomType">Room Type:</label>
+      <select id="roomType">
+        <option value="standard">Standard Room</option>
+        <option value="deluxe">Deluxe Room</option>
+        <option value="suite">Suite</option>
+      </select>
+
+      <label for="checkIn">Check-In Date:</label>
+      <input type="date" id="checkIn" required>
+
+      <label for="checkOut">Check-Out Date:</label>
+      <input type="date" id="checkOut" required>
+
+      <button onclick="submitBooking()">Submit Booking</button>
+    </div>
+  </section>
+
+  <script>
+    function submitBooking() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const roomType = document.getElementById('roomType').value;
+      const checkIn = document.getElementById('checkIn').value;
+      const checkOut = document.getElementById('checkOut').value;
+
+      if (!name || !email || !checkIn || !checkOut) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+
+      alert(`Booking confirmed for ${name}!\nRoom Type: ${roomType}\nCheck-In: ${checkIn}\nCheck-Out: ${checkOut}`);
+    }
+  </script>
+
+</body>
+</html>
